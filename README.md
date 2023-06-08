@@ -39,7 +39,7 @@ N = calculusI,
 C = 8522,
 T = 13 ;
 N = calculusI,
-C = 78ss,
+C = 7822,
 T = 14.
 ```
 4. Define a predicate conflict/3 that can compute conflicts in a student’s schedule. A conflict exists if a student is enrolled in two classes that are scheduled to meet at the same time. The arguments of conflict are a student’s sid and two CRNs for sections of classes. If the students is not enrolled in the section then a false is returned.
