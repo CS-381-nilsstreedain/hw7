@@ -82,3 +82,9 @@ schedule(SID, StudentName, Course) :-
     enroll(SID, CRN),               % Matches SID with CRN
     section(CRN, CourseNum),        % Gets course number for CRN
     course(CourseNum, Course, _).   % Matches course number with course
+
+% 3. offer/4: Finds course number, course name, CRN, and times offered.
+offer(CourseNum, Course, CRN, Time) :-
+    course(CourseNum, Course, _),   % Matches course number with course
+    section(CRN, CourseNum),        % Matches CRN with course number
+    place(CRN, _, Time).            % Gets time for CRN
