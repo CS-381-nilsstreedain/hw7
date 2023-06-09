@@ -111,3 +111,8 @@ meet(SID1, SID2) :-
         % ...or if they are enrolled in the same section
         CRN1 = CRN2
     ).
+
+% 6. roster/2: Finds all students in a course section.
+roster(CRN, StudentName) :-
+    enroll(SID, CRN),               % Matches SID with CRN
+    student(SID, StudentName, _).   % Gets student name for the SID
