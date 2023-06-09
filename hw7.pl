@@ -88,3 +88,11 @@ offer(CourseNum, Course, CRN, Time) :-
     course(CourseNum, Course, _),   % Matches course number with course
     section(CRN, CourseNum),        % Matches CRN with course number
     place(CRN, _, Time).            % Gets time for CRN
+
+% 4. conflict/3: Checks if a student has a scheduling conflict.
+conflict(SID, CRN1, CRN2) :-
+    enroll(SID, CRN1),              % Matches SID with CRN1
+    enroll(SID, CRN2),              % Matches SID with CRN2
+    CRN1 \= CRN2,                   % Ensures CRN1 and CRN2 are different
+    place(CRN1, _, Time),           % Gets time for CRN1
+    place(CRN2, _, Time).           % Gets time for CRN2 (conflict if same)
