@@ -96,3 +96,18 @@ conflict(SID, CRN1, CRN2) :-
     CRN1 \= CRN2,                   % Ensures CRN1 and CRN2 are different
     place(CRN1, _, Time),           % Gets time for CRN1
     place(CRN2, _, Time).           % Gets time for CRN2 (conflict if same)
+
+% 5. meet/2: Finds pairs of students that can meet.
+meet(SID1, SID2) :-
+    enroll(SID1, CRN1),             % Matches SID1 with CRN1
+    enroll(SID2, CRN2),             % Matches SID2 with CRN2
+    SID1 \= SID2,                   % Ensures SID1 and SID2 are different
+    (
+        % If they have class at the same place at adjacent times...
+        (place(CRN1, Building, Time1),
+        place(CRN2, Building, Time2),
+        abs(Time1-Time2) =:= 1)
+        ;
+        % ...or if they are enrolled in the same section
+        CRN1 = CRN2
+    ).
