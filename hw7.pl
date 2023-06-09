@@ -121,3 +121,15 @@ roster(CRN, StudentName) :-
 highCredits(Course) :-
     course(_, Course, Credits),     % Matches course with credits
     Credits >= 4.                   % Filters for credits greater/equal to 4
+
+/* Problem 2. List Predicates and Arthmetic */
+
+% 1. rdup: Removes duplicates from an ordered list.
+rdup([], []) :- !.                 % If empty, the result is empty
+rdup([X], [X]) :- !.               % If single item list, result is same list
+rdup([X, X | T], M) :-             % If first two items are the same...
+    !,
+    rdup([X | T], M).              % ... ignore second, recurse rest of list
+rdup([X, Y | T], [X | M]) :-       % If first two items are different...
+    X \= Y,
+    rdup([Y | T], M).              % ... keep first, recurse rest of list
