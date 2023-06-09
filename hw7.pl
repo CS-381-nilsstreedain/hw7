@@ -75,3 +75,10 @@ schedule(SID, Course, Building, Time) :-
     section(CRN, CourseNum),        % Gets course number for CRN
     course(CourseNum, Course, _),   % Matches course number with course
     place(CRN, Building, Time).     % Gets building and time for CRN
+
+% 2. schedule/3: Finds a student's name and course names.
+schedule(SID, StudentName, Course) :-
+    student(SID, StudentName, _),   % Gets student name for SID
+    enroll(SID, CRN),               % Matches SID with CRN
+    section(CRN, CourseNum),        % Gets course number for CRN
+    course(CourseNum, Course, _).   % Matches course number with course
