@@ -116,3 +116,8 @@ meet(SID1, SID2) :-
 roster(CRN, StudentName) :-
     enroll(SID, CRN),               % Matches SID with CRN
     student(SID, StudentName, _).   % Gets student name for the SID
+
+% 7. highCredits/1: Finds all courses that are 4 or more credits.
+highCredits(Course) :-
+    course(_, Course, Credits),     % Matches course with credits
+    Credits >= 4.                   % Filters for credits greater/equal to 4
