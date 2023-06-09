@@ -60,3 +60,18 @@ student(310, pat, cs).
 student(175, amy, math).
 student(410, john, cs).
 student(113, zoe, ece).
+
+/****************** Homework 7 *******************
+*                                                *
+* Author: Nils Streedain                         *
+*                                                *
+*************************************************/
+
+/* Problem 1. Database Application */
+
+% 1. schedule/4: Finds a student's course, building, and time.
+schedule(SID, Course, Building, Time) :-
+    enroll(SID, CRN),               % Matches SID with CRN
+    section(CRN, CourseNum),        % Gets course number for CRN
+    course(CourseNum, Course, _),   % Matches course number with course
+    place(CRN, Building, Time).     % Gets building and time for CRN
