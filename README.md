@@ -1,4 +1,4 @@
-# Homework 7.
+# Homework 7 - Prolog
 This is an individual assignment. Put all the definitions into one file named hw7.pl. This file should also contain the database facts and comments including your name. Do not include any extraneous entries for the predicates.
 
 ## Problem 1. Database Application
